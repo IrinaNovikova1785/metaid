@@ -111,6 +111,12 @@ html{
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    transition: all .38s ease-in-out;
+
+    position: absolute;
+    top: 50%;
+    transform: translateY(-80%);
+    width: 100%;
 }
 
 .menu{
@@ -188,7 +194,7 @@ html{
             }
         }
     }
-    &.active{
+    &:hover{
         border-radius: 20px;
         .menu__item{
             justify-content: start;
@@ -225,6 +231,7 @@ html{
 }
 .label{
     @include fluid(margin-bottom, 0px, 35px);
+    @include fluid(margin-right, 10px, 40px);
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -283,7 +290,13 @@ html{
             border-radius: 10px;
             background: #FFF;
             opacity: 0.7;
-            transition: opacity .38s ease-in-out;
+            transition: all .38s ease-in-out;
+            &--display{
+                display: none;
+            }
+            &--opacity{
+                opacity: 0 !important;
+            }
             &:not(&:first-child){
                 margin-top: 12px;
             }
@@ -292,6 +305,7 @@ html{
             }
             &Wrap{
                 margin-bottom: 184px;
+                transition: all .38s ease-in-out;
             }
             &TxtBold{
                 font-weight: 700;
@@ -364,7 +378,7 @@ html{
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        width: 265px;
+        width: 275px;
         height: 214px;
         position: relative;
         border-radius: 20px;
@@ -399,6 +413,7 @@ html{
                 font-size: 10px;
                 line-height: 110%;  
                 overflow: hidden;
+                max-width: 165px;
                 text-overflow: ellipsis;
                 display: -webkit-box;
                 -webkit-line-clamp: 2;

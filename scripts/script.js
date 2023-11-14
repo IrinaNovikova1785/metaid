@@ -20,16 +20,49 @@ $(window).on("load", function () {
     //     })
     // }
     const forgetMe = document.querySelectorAll(".forgetBtn");
-const forgetBtn = document.querySelector(".modal__forgetPass-customBtn");
+const forgetBtn = document.querySelectorAll(".modal__forgetPass-customBtn");
 if(forgetMe){
-    forgetMe.forEach((elem) => {
+    forgetMe.forEach((elem, index) => {
         elem.addEventListener('click', (e) =>{
-          forgetBtn.classList.toggle('active');
+          forgetBtn[index].classList.toggle('active');
             e.preventDefault();
             e.stopPropagation();
         })
     })
 }
+
+$.fn.setCursorPosition = function(pos) {
+  if ($(this).get(0).setSelectionRange) {
+    $(this).get(0).setSelectionRange(pos, pos);
+  } else if ($(this).get(0).createTextRange) {
+    var range = $(this).get(0).createTextRange();
+    range.collapse(true);
+    range.moveEnd('character', pos);
+    range.moveStart('character', pos);
+    range.select();
+  }
+};
+if (document.querySelector('[name="phone"]')) {
+  $('[name="phone"]').click(function(){
+      $(this).setCursorPosition(4);
+    }).mask('+7 (999) 999-99-99', {
+      placeholder: '',
+      autoclear: false,
+  })
+}
+
+
+let closeMess = document.querySelectorAll('.lastPath__first-messageClose');
+let mess = document.querySelectorAll('.lastPath__first-message');
+closeMess.forEach((el, index) => {
+  el.addEventListener('click', () => {
+    mess[index].classList.add('lastPath__first-message--opacity');
+    setTimeout(() =>{
+      mess[index].classList.add('lastPath__first-message--display');
+    }, 400);
+  });
+});
+
 
     $('.modal__input-select').select2({
         placeholder: `Промышленность`,
@@ -49,10 +82,10 @@ if(forgetMe){
           direction: 'horizontal',
           slidesPerView: 1,  
           loop: true,
-          speed: 5000,
+          speed: 8000,
           freeMode: true,
           autoplay: {
-            delay: 1,
+            delay: 0.1,
           },
         })
       }
@@ -107,7 +140,7 @@ if(forgetMe){
         contentClick: 'next',
         hideScrollbar: false,
         backdrop: {
-          show: true,
+          // show: true,
           opacity: 0, // Устанавливаем прозрачность фона в 0
         },
       

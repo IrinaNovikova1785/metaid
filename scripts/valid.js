@@ -106,7 +106,9 @@ window.addEventListener('DOMContentLoaded', () => {
   
   
     registrationTelInputEl?.addEventListener('input', () => {
-        if (registrationTelInputEl.value.length < 16) {
+        console.log(registrationTelInputEl.value.length);
+        
+        if (registrationTelInputEl.value.length < 11) {
             registrationTelInputEl.classList.add('valEntry--invalid');
         } else {
             registrationTelInputEl.classList.remove('valEntry--invalid', 'valEntry--required');

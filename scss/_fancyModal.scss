@@ -76,6 +76,7 @@
             display: flex;
             gap: 5px;
             align-items: center;
+            cursor: pointer;
             p{
                 color: #C2C2C2;
                 font-size: 12px;
@@ -112,10 +113,14 @@
         }
     }
     &__invalid{
+        display: none;
         color: #EF4440;
         font-size: 12px;
         margin: 0 auto;
         margin-bottom: 5px;
+        &.active{
+            display: block;
+        }
     }
     &__btn{
         text-align: center;
@@ -186,15 +191,14 @@
         }
     }
 }
-.fancybox-container{
-    background-color: transparent !important;
-    --fancybox-bg: none !important;
-    background: transparent !important;
-    --fancybox-bg: red !important;
+
+.fancybox__container{
+    --fancybox-bg: rgba(0, 0, 0, 0.46); 
+
 }
-.is-close-btn{
-    display: none;
-}
+// .is-close-btn{
+//     display: none;
+// }
 .fancybox-active{
     height: 100% !important;
 }
