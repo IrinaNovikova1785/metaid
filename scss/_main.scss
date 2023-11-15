@@ -141,10 +141,10 @@ html {
   align-items: flex-end;
   transition: all .38s ease-in-out;
 
-  // position: absolute;
-  // top: 50%;
-  // transform: translateY(-80%);
-  // width: 97%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-80%);
+  width: 97%;
 }
 
 .menu {
@@ -335,6 +335,7 @@ html {
 }
 
 .lastPath {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: end;
@@ -384,9 +385,9 @@ html {
         margin-bottom: 184px;
         transition: all .38s ease-in-out;
 
-        position: absolute;
-        top: -160px;
-        left: 180px;
+        // position: absolute;
+        // top: -160px;
+        // left: 180px;
       }
 
       &TxtBold {
@@ -450,6 +451,11 @@ html {
     padding: 10px 20px;
     background-color: #FFF;
     border-radius: 30px;
+
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    transform: translateX(50%);
 
     &-item {
       display: flex;
