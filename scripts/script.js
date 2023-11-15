@@ -31,26 +31,12 @@ $(window).on('load', function () {
     })
   }
 
-  $.fn.setCursorPosition = function (pos) {
-    if ($(this).get(0).setSelectionRange) {
-      $(this).get(0).setSelectionRange(pos, pos)
-    } else if ($(this).get(0).createTextRange) {
-      var range = $(this).get(0).createTextRange()
-      range.collapse(true)
-      range.moveEnd('character', pos)
-      range.moveStart('character', pos)
-      range.select()
-    }
-  }
   if (document.querySelector('[name="phone"]')) {
-    $('[name="phone"]')
-      .click(function () {
-        $(this).setCursorPosition(4)
-      })
-      .mask('+7 (999) 999-99-99', {
-        placeholder: '',
-        autoclear: false,
-      })
+    const element = document.querySelector('[name="phone"]')
+    const maskOptions = {
+      mask: '+{7} 000 000 00 00',
+    }
+    const mask = IMask(element, maskOptions)
   }
 
   let closeMess = document.querySelectorAll('.lastPath__first-messageClose')
@@ -114,22 +100,20 @@ $(window).on('load', function () {
     })
   }
 
-  $('.modal__formReg-wrap').submit(function (event) {
-    console.log('hi')
+  $('#form-registration').submit(function (event) {
     var form = $(this)
     var field = []
-    form.find('input[data-validate]').each(function () {
+    $('input[data-validate]').each(function () {
       field.push('input[data-validate]')
-      console.log(field)
 
       var value = $(this).val(),
         line = $(this).closest('.valEntry')
       for (var i = 0; i < field.length; i++) {
         if (!value) {
-          line.addClass('valEntry--required')
+          line.addClass('valEntry--invalid')
           setTimeout(
             function () {
-              line.removeClass('valEntry--required')
+              line.removeClass('valEntry--invalid')
             }.bind(this),
             1000
           )

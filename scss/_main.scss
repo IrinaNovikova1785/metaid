@@ -203,6 +203,11 @@ html {
         transition: .38s ease-in-out;
       }
     }
+    &--l9{
+      svg{
+        left: 9.5px;
+      }
+    }
 
     &--default {
       background-color: #000;

@@ -52,6 +52,8 @@
 		background-color: #F6F6F6;
         color: #171717;
         font-size: 14px;
+        transition: all .38s ease-in-out;
+
         &--imgLogin{
             background: url(../img/pass.png) #f6f6f6;
             background-position: left 13px center; 
